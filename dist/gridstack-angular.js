@@ -142,6 +142,30 @@ app.directive('gridstackItem', ['$timeout', function($timeout) {
         scope.onItemAdded({item: item});
       });
 
+      scope.$watch('gsItemX', function(val) {
+        if (val != $(element).attr('data-gs-x') && angular.isDefined(val)) {
+          $(element).attr('data-gs-x', val);
+        }
+      });
+
+      scope.$watch('gsItemY', function(val) {
+        if (val != $(element).attr('data-gs-y') && angular.isDefined(val)) {
+          $(element).attr('data-gs-y', val);
+        }
+      });
+
+      scope.$watch('gsItemWidth', function(val) {
+        if (val != $(element).attr('data-gs-width') && angular.isDefined(val)) {
+          $(element).attr('data-gs-width', val);
+        }
+      });
+
+      scope.$watch('gsItemHeight', function(val) {
+        if (val != $(element).attr('data-gs-height') && angular.isDefined(val)) {
+          $(element).attr('data-gs-height', val);
+        }
+      });
+
       scope.$watch(function() { return $(element).attr('data-gs-id'); }, function(val) {
         scope.gsItemId = val;
       });
